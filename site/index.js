@@ -27,9 +27,14 @@ let requisition2 = {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
     },
-    body: JSON.stringify({
+    body: new FormData().append("sexo", "masculino")
+    /*body : new FormData({
+        sexo :"masculino"
+    })*/
+
+   /* body: JSON.stringify({
         sexo: "masculino"
-    }),
+    }),*/
 }    
 
 fetch(url2,requisition2)

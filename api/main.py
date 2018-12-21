@@ -25,6 +25,7 @@ def retorno():
 # ROUTE FOR POST PRINT DATA
 @app.route("/send",methods=['POST'])
 def send():
+  # pprint(request.__dict__)
   print(request.form)
   #request.form["sexo"] == "masculino" ? print("VOce é home") : print("VOce nao é home")
   #print("Voce é home " if request.form["sexo"] == "masculino" else "voce é mulher"  )
@@ -32,7 +33,6 @@ def send():
   #print(car)
   status = {"status": "ok"}
   return jsonify(status)
-
 
 
 if __name__ == "__main__":
