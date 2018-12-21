@@ -87,7 +87,7 @@ let parms= {
 // var data = new FormData();
 // data.append("sexo", "masculino\n");
 // let d2=  JSON.stringify({sexo: "masculino"});
-// let d3 =   {sexo: "masculino"};
+let d3 =   {sexo: "masculino"};
 
 // var options = { 
 //     method: 'POST',
@@ -119,32 +119,53 @@ let parms= {
 
 
 
-fetch("http://127.0.0.1/send",{
-    method: 'POST',
-    headers: new Headers({'Access-Control-Allow-Origin':'*'}),
-    mode: "cors",
-    body: JSON.stringify({ "ola ": "Mundo" })
-}).then(response=> response.json())
-.then(data => {
-    console.log("Ex 1 :")
-    console.log(data)
-})
-.catch( err =>  {
-    console.log("Ex 2 :")
-    console.log(err)
-})
+// fetch("http://127.0.0.1/send",{
+//     method: 'POST',
+//     headers: new Headers('Access-Control-Allow-Origin','*'),
+//     mode: "cors",
+//     body: JSON.stringify({ "ola ": "Mundo" })
+// }).then(response=> response.json())
+// .then(data => {
+//     console.log("Ex 1 :")
+//     console.log(data)
+// })
+// .catch( err =>  {
+//     console.log("Ex 2 :")
+//     console.log(err)
+// })
 
 // fetch(
 //     url,
 //     {   method: 'POST',
 //         mode: 'cors',
 //         headers: new Headers(
-//            {"Content-Type": "application/json",
-//             "Accept":"application/json"}
+//             {
+//             'Content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
+//             }
 //         ),
-//         body: JSON.stringify(
-//            {'name': 'Tom', 'password': 'Soyer'}
-//         )
+//         body: new FormData().append(d3)
 //      }
 //    ).then( response => { console.log(response);})
 //     .catch(err => console.log(err))
+
+let data = {
+    name: 'Sara',
+    sexo: "Carro",
+    idade: "Juana"
+}
+
+let fetchData = { 
+    method: 'POST', 
+    body: data,
+    mode: "cors",
+    headers: new Headers({
+        "Content-type" : "application/json"
+    })
+}
+fetch(url,fetchData)
+.then((response)=>{
+    console.log(response.json())
+    return response.json()
+}).then(data =>{
+    console.log(data)
+})

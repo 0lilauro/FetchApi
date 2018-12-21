@@ -23,10 +23,12 @@ def retorno():
     return jsonify(car)
 
 # ROUTE FOR POST PRINT DATA
-@app.route("/send",methods=['POST'])
+@app.route("/send",methods=['POST','GET'])
 def send():
   # pprint(request.__dict__)
   print(request.form)
+  pprint(request.__dict__)
+  print(request.get_json())
   #request.form["sexo"] == "masculino" ? print("VOce é home") : print("VOce nao é home")
   #print("Voce é home " if request.form["sexo"] == "masculino" else "voce é mulher"  )
   #print(request.args)
