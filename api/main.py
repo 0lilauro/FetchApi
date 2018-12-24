@@ -35,7 +35,15 @@ def send():
   #print(car)
   status = {"status": "ok"}
   return jsonify(status)
+@app.route("/getjson",methods=['POST'])
+def getter():
+    resultado = request.get_json();
+    pprint(resultado)
+    pprint(resultado['data']['id'])    
 
+    # pprint(request.__dict__)
+    pprint(request.get_json(silent=True))
+    return jsonify({"status": True})
 
 if __name__ == "__main__":
   app.run(host='127.0.0.1', port='8001', debug=True)
